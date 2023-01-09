@@ -1,10 +1,13 @@
-import './App.css';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import { customTheme } from './theme/customTheme';
+import Dashboard from './pages/dashboard/dashboard';
 
-function App() {
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <h1>Hello world!!</h1>
-    </div>
+    <ThemeProvider theme={customTheme}>
+      <CssBaseline />
+      <Dashboard />
+    </ThemeProvider>
   );
 }
 
