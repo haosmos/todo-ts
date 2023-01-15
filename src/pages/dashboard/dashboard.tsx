@@ -4,12 +4,10 @@ import Sidebar from '../../components/sidebar/sidebar';
 
 function Dashboard(): JSX.Element {
   return (
-    <>
-      <Grid container minHeight="100vh" p={0} m={0}>
-        <TaskArea />
-        <Sidebar />
-      </Grid>
-    </>
+    <Grid container minHeight="100vh" p={0} m={0}>
+      <TaskArea />
+      <Sidebar />
+    </Grid>
   );
 }
 

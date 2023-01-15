@@ -1,5 +1,7 @@
 import { Grid, Box } from '@mui/material';
 import { format } from 'date-fns';
+import TaskCounter from '../taskCounter/taskCounter';
+import Task from '../task/task';
 
 function TaskArea(): JSX.Element {
   return (
@@ -31,19 +33,20 @@ function TaskArea(): JSX.Element {
           xs={12}
           mb={8}
         >
-          <Box>Task Counter</Box>
-          <Box>Task Counter</Box>
-          <Box>Task Counter</Box>
+          <TaskCounter />
+          <TaskCounter />
+          <TaskCounter />
         </Grid>
         <Grid
           item
           display="flex"
           flexDirection="column"
-          xs={10}
           md={8}
+          xs={10}
         >
-          <Box>Tasks Will Come Over Here</Box>
-          <Box>Tasks Will Come Over Here</Box>
+          <Task />
+          <Task />
+          <Task />
         </Grid>
       </Grid>
     
