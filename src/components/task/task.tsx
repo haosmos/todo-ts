@@ -7,7 +7,7 @@ import { ITask } from './interfaces/ITask';
 import { Priority } from '../createTaskForm/enums/Priority';
 import { Status } from '../createTaskForm/enums/Status';
 import { renderPriorityBorderColor } from './helpers/renderPriorityBorderColor';
-“
+
 function Task({
   title = 'Test title',
   date = new Date(),

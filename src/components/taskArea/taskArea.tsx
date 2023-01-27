@@ -27,9 +27,9 @@ function TaskArea(): JSX.Element {
           item
           display="flex"
           flexDirection="row"
-          justifyContent="space-around"
+          justifyContent="space-between"
           alignItems="center"
-          md={10}
+          md={8}
           xs={12}
           mb={8}
         >
