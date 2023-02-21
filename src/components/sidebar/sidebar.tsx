@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
-import Profile from '../profile/profile';
 import CreateTaskForm from '../createTaskForm/createTaskForm';
+import Profile from '../profile/profile';
 
 function Sidebar(): JSX.Element {
   return (

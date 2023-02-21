@@ -1,7 +1,7 @@
-import { Grid, Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { format } from 'date-fns';
-import TaskCounter from '../taskCounter/taskCounter';
 import Task from '../task/task';
+import TaskCounter from '../taskCounter/taskCounter';
 
 function TaskArea(): JSX.Element {
   return (
@@ -17,7 +17,7 @@ function TaskArea(): JSX.Element {
           {format(new Date(), 'PPPP')}
         </h2>
       </Box>
-      
+
       <Grid
         container
         display="flex"
@@ -49,7 +49,7 @@ function TaskArea(): JSX.Element {
           <Task />
         </Grid>
       </Grid>
-    
+
     </Grid>
   );
 }
