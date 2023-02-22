@@ -17,7 +17,7 @@ import TaskSelectField from './_taskSelectField';
 import { Status } from './enums/Status';
 import { Priority } from './enums/Priority';
 import { sendApiRequest } from '../../helpers/sendApiRequest';
-import { ICreateTask } from '../taskArea/ICreateTask';
+import { ICreateTask } from '../taskArea/Interfaces/ICreateTask';
 
 function CreateTaskForm(): JSX.Element {
   const [title, setTitle] = useState<string | undefined>(undefined);

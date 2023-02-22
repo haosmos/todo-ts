@@ -16,6 +16,7 @@ function Task({
   status = Status.completed,
   onStatusChange = (e) => console.log(e),
   onClick = (e) => console.log(e),
+  id,
 }: ITask): JSX.Element {
   return (
     <Box
@@ -36,6 +37,8 @@ function Task({
       <TaskHeader title={title} date={date} />
       <TaskDescription description={description} />
       <TaskFooter
+        id={id}
+        status={status}
         onClick={onClick}
         onStatusChange={onStatusChange}
       />

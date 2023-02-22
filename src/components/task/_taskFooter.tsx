@@ -1,8 +1,11 @@
 import { Switch, Box, FormControlLabel, Button } from '@mui/material';
-import { ITaskFooter } from './interfaces/ITaskFooter';
 import PropTypes from 'prop-types';
+import { Status } from '../createTaskForm/enums/Status';
+import { ITaskFooter } from './interfaces/ITaskFooter';
 
 function TaskFooter({
+  id,
+  status,
   onStatusChange = (e) => console.log(e),
   onClick = (e) => console.log(e)
 }: ITaskFooter): JSX.Element {
@@ -14,12 +17,13 @@ function TaskFooter({
       mb={4}
     >
       <FormControlLabel
-        control={
+        control={(
           <Switch
+            defaultChecked={status === Status.inProgress}
             color="warning"
-            onChange={(e) => onStatusChange(e)}
+            onChange={(e) => onStatusChange(e, id)}
           />
-        }
+        )}
         label="In Progress"
       />
       
@@ -30,7 +34,7 @@ function TaskFooter({
         sx={{
           color: '#ffffff'
         }}
-        onClick={(e) => onClick(e)}
+        onClick={(e) => onClick(e, id)}
       >
         Mark Complete
       </Button>
@@ -42,6 +46,8 @@ function TaskFooter({
 export default TaskFooter;
 
 TaskFooter.propTypes = {
+  id: PropTypes.isRequired,
+  status: PropTypes.string,
   onStatusChange: PropTypes.func,
   onClick: PropTypes.func
 };
