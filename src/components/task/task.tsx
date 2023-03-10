@@ -30,7 +30,7 @@ function Task({
         width: '100%',
         backgroundColor: 'background.paper',
         borderRadius: '8px',
-        border: '1px solid',
+        border: '1px solid ',
         borderColor: renderPriorityBorderColor(priority),
       }}
     >

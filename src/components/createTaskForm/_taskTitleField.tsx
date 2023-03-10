@@ -1,14 +1,17 @@
 import { TextField } from '@mui/material';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import { ITextField } from './interfaces/ITextField';
 
 function TaskTitleField({
-  onChange = (e) => console.log(e),
-  disabled = false
+  onChange = (e) => console.log(e.target.value),
+  disabled = false,
+  value,
 }: ITextField): JSX.Element {
+  
   return (
     <TextField
+      value={value}
       id="title"
       label="Task Title"
       placeholder="Task Title"
@@ -24,7 +27,7 @@ function TaskTitleField({
 
 export default TaskTitleField;
 
-TaskTitleField.propTypes = {
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool
-};
+// TaskTitleField.propTypes = {
+//   onChange: PropTypes.func,
+//   disabled: PropTypes.bool
+// };

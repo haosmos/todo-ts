@@ -6,6 +6,9 @@
 	],
 	"rules": {
 		"semi": "off",
+		"no-console": "off",
+		"no-empty-function": "off",
+		"@typescript-eslint/no-empty-function": "off",
 		"@typescript-eslint/semi": [
 			"warn"
 		],

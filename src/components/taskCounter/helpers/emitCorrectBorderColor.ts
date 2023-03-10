@@ -1,8 +1,11 @@
-import { TaskCounterStatus } from '../interfaces/ITaskCounter';
+import { TaskCounterStatusType } from '../interfaces/ITaskCounter';
 import { Status } from '../../createTaskForm/enums/Status';
 
 // eslint-disable-next-line consistent-return
-export const emitCorrectBorderColor = (status: TaskCounterStatus): string => {
+export const emitCorrectBorderColor = (
+  status: TaskCounterStatusType
+// eslint-disable-next-line consistent-return
+): string => {
   // eslint-disable-next-line default-case
   switch (status) {
     case Status.todo:

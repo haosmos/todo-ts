@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useContext } from 'react';
 import { useMutation } from '@tanstack/react-query';
 
 import {
@@ -18,6 +18,7 @@ import { Status } from './enums/Status';
 import { Priority } from './enums/Priority';
 import { sendApiRequest } from '../../helpers/sendApiRequest';
 import { ICreateTask } from '../taskArea/Interfaces/ICreateTask';
+import { TaskStatusChangedContext } from '../../context';
 
 function CreateTaskForm(): JSX.Element {
   const [title, setTitle] = useState<string | undefined>(undefined);
@@ -27,6 +28,8 @@ function CreateTaskForm(): JSX.Element {
   const [priority, setPriority] = useState<string>(Priority.normal);
   
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  
+  const tasksUpdatedContext = useContext(TaskStatusChangedContext);
   
   const createTaskMutation = useMutation((data: ICreateTask) => sendApiRequest(
     'http://localhost:3001/tasks',
@@ -50,17 +53,25 @@ function CreateTaskForm(): JSX.Element {
     createTaskMutation.mutate(task);
   }, [createTaskMutation, date, description, priority, status, title]);
   
+  function cleanUpForm() {
+    console.log('clean up function!!!');
+    setTitle((prev) => '');
+    setDescription('');
+  }
+  
   useEffect(
     () => {
       if (createTaskMutation.isSuccess) {
         setShowSuccess(true);
+        cleanUpForm();
+        tasksUpdatedContext.toggle();
       }
       
       const successTimeout = setTimeout(
         () => {
           setShowSuccess(false);
         },
-        5000
+        1500
       );
       
       return () => {
@@ -69,6 +80,10 @@ function CreateTaskForm(): JSX.Element {
     },
     [createTaskMutation.isSuccess]
   );
+  
+  // useEffect(() => {
+  //   cleanUpForm();
+  // });
   
   return (
     <Box
@@ -97,11 +112,13 @@ function CreateTaskForm(): JSX.Element {
       
       <Stack sx={{ width: '100%' }} spacing={2}>
         <TaskTitleField
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
           disabled={createTaskMutation.isLoading}
         />
         <TaskDescriptionField
           disabled={createTaskMutation.isLoading}
+          value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
         <TaskDateField
@@ -171,7 +188,6 @@ function CreateTaskForm(): JSX.Element {
           Create a task
         </Button>
       </Stack>
-    
     </Box>
   );
 }

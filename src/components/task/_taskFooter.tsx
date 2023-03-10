@@ -1,5 +1,5 @@
 import { Switch, Box, FormControlLabel, Button } from '@mui/material';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Status } from '../createTaskForm/enums/Status';
 import { ITaskFooter } from './interfaces/ITaskFooter';
 
@@ -45,9 +45,9 @@ function TaskFooter({
 
 export default TaskFooter;
 
-TaskFooter.propTypes = {
-  id: PropTypes.isRequired,
-  status: PropTypes.string,
-  onStatusChange: PropTypes.func,
-  onClick: PropTypes.func
-};
+// TaskFooter.propTypes = {
+//   id: PropTypes.isRequired,
+//   status: PropTypes.string,
+//   onStatusChange: PropTypes.func,
+//   onClick: PropTypes.func
+// };
