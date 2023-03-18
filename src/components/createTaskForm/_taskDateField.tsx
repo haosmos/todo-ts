@@ -7,7 +7,8 @@ import { TextField } from '@mui/material';
 import { IDateField } from './interfaces/IDateField';
 
 function TaskDateField({
-  value = new Date(), disabled = false, onChange = (data) => console.log(date)
+  value = new Date(), disabled = false,
+  onChange = () => console.log()
 }: IDateField): JSX.Element {
   return (
     <LocalizationProvider

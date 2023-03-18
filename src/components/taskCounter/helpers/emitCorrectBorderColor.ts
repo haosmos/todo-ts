@@ -5,7 +5,7 @@ import { Status } from '../../createTaskForm/enums/Status';
 export const emitCorrectBorderColor = (
   status: TaskCounterStatusType
 // eslint-disable-next-line consistent-return
-): string => {
+): string | undefined => {
   // eslint-disable-next-line default-case
   switch (status) {
     case Status.todo:
