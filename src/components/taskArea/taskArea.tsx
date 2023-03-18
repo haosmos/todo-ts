@@ -72,7 +72,7 @@ function TaskArea(): JSX.Element {
     ['tasks'],
     () => {
       return sendApiRequest<ITaskApi[]>(
-        'http://localhost:3001/tasks',
+        'https://todo-api-dw4z.onrender.com/tasks',
         'GET'
       );
     }
@@ -80,7 +80,7 @@ function TaskArea(): JSX.Element {
   
   const updateTaskMutation = useMutation(
     (data: IUpdateTask) => sendApiRequest(
-      'http://localhost:3001/tasks',
+      'https://todo-api-dw4z.onrender.com/tasks',
       'PUT',
       data
     )
